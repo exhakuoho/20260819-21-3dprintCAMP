@@ -40,12 +40,12 @@ Google Sheet「報名資料」
 
 ### 1. Google Sheet + Apps Script
 
-1. 開一個新的 Google Sheet，從網址取得 Sheet ID（`/d/` 與 `/edit` 之間那段）
+1. 開一個新的 Google Sheet
 2. 擴充功能 → Apps Script，把 `apps-script/Code.gs` 全部內容貼上，存檔
-3. 專案設定 → 指令碼屬性，新增：
-   - `SHEET_ID` — 上面的 Sheet ID
-   - `SHARED_TOKEN` — 自訂一組密鑰（等一下 Cloudflare 要填一樣的）
-4. 執行一次 `setup()`，授權存取 Sheet 與 Drive → 標題列會自動建好
+   （這樣建立的是綁定式腳本，會自動使用所屬試算表，不必設定 `SHEET_ID`）
+3. 執行一次 `setup()`（編輯器上方的函式下拉選單要選 `setup`），授權存取
+   Sheet 與 Drive → 「報名資料」工作表與標題列會自動建好
+4. 專案設定 → 指令碼屬性，新增 `SHARED_TOKEN`（自訂密鑰，等一下 Cloudflare 要填一樣的）
 5. 部署 → 新增部署作業 → **網頁應用程式**
    - 執行身分：**我**
    - 誰可以存取：**任何人**

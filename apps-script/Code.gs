@@ -3,11 +3,12 @@
  *
  * 部署方式（Apps Script 編輯器）：
  *   1. 貼上本檔全部內容，存檔
- *   2. 專案設定 → 指令碼屬性，新增：
- *        SHEET_ID       你的 Google Sheet ID（網址 /d/ 與 /edit 之間那段）
+ *   2. 執行一次 setup()（上方函式下拉選單要選 setup，不是 myFunction），
+ *      授權存取 Sheet 與 Drive，並自動建立標題列
+ *   3. 專案設定 → 指令碼屬性，新增：
  *        SHARED_TOKEN   自訂密鑰，需與 Cloudflare 的 SHEETS_SHARED_TOKEN 一致
+ *        SHEET_ID       （只有獨立式腳本需要）Sheet 網址 /d/ 與 /edit 之間那段
  *        DRIVE_FOLDER_ID（選用）存放簽名圖的 Drive 資料夾 ID，未設定則自動建立
- *   3. 執行一次 setup()，授權存取 Sheet 與 Drive，並自動建立標題列
  *   4. 部署 → 新增部署作業 → 類型「網頁應用程式」
  *        執行身分：我
  *        誰可以存取：任何人
@@ -51,10 +52,22 @@ function props_() {
   return PropertiesService.getScriptProperties();
 }
 
-function getSheet_() {
+function getBook_() {
+  // 綁定式腳本（從 Sheet 的「擴充功能 → Apps Script」開啟）直接用所屬試算表，
+  // 不需要設定 SHEET_ID。獨立式腳本才需要靠指令碼屬性指定。
   var id = props_().getProperty('SHEET_ID');
-  if (!id) throw new Error('尚未設定指令碼屬性 SHEET_ID');
-  var book = SpreadsheetApp.openById(id);
+  if (id) return SpreadsheetApp.openById(id);
+
+  var active = SpreadsheetApp.getActiveSpreadsheet();
+  if (active) return active;
+
+  throw new Error(
+    '找不到試算表。若這是獨立式腳本，請到「專案設定 → 指令碼屬性」新增 SHEET_ID。'
+  );
+}
+
+function getSheet_() {
+  var book = getBook_();
   var sheet = book.getSheetByName(SHEET_NAME);
   if (!sheet) sheet = book.insertSheet(SHEET_NAME);
   return sheet;
@@ -63,6 +76,7 @@ function getSheet_() {
 /** 首次執行：建立標題列並授權 */
 function setup() {
   var sheet = getSheet_();
+  Logger.log('目標試算表：' + sheet.getParent().getName());
   var headers = COLUMNS.map(function (column) { return column[1]; });
   sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
   sheet.getRange(1, 1, 1, headers.length)
