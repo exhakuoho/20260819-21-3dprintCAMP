@@ -3,11 +3,13 @@
    - 報名表單：直接 POST 至 Google Apps Script Web App，寫入 Google Sheet
 */
 
-/* ============ 送出設定（要換 Apps Script 或梯次名稱改這裡） ============ */
-// 與 faymi-ai-steam-camp / aisteam-camp2 共用同一個 Apps Script，欄位名稱必須保持一致
-const SHEETS_WEBHOOK_URL =
-  "https://script.google.com/macros/s/AKfycbx9IwB6g7oSsB9TqDRQsNEapckwR1evxNtNWAsGrJlj0sWxylhkc-hXLQGD5LkrbLcXfA/exec";
+/* ============ 送出設定 ============ */
+// 報名資料送到本站自己的 Pages Function，再由後端轉發到 Google Apps Script。
+// Apps Script 的網址存在 Cloudflare 環境變數，不會出現在前端原始碼裡。
+const SUBMIT_ENDPOINT = "/api/register";
 const BATCH_LABEL = "2026 3D列印創客營（8/19-21）";
+// 選用：到 Cloudflare → Turnstile 申請後把 site key 填進來，填了才會顯示驗證元件
+const TURNSTILE_SITE_KEY = "";
 
 /* ============ 頁面資料 ============ */
 const dayPlans = [
@@ -25,6 +27,7 @@ const dayPlans = [
       ["10:35", "Tinkercad 基礎建模"],
       ["13:00", "個人作品：立體姓名牌"],
       ["14:20", "模型檢查、修正與發表"],
+      ["16:00", "環境整理、當日回顧與賦歸"],
     ],
   },
   {
@@ -41,6 +44,7 @@ const dayPlans = [
       ["10:35", "實機操作與參數實驗"],
       ["13:00", "人偶設計概念與個人建模"],
       ["15:10", "模型檢查、切片與上色規劃"],
+      ["16:00", "環境整理、當日回顧與賦歸"],
     ],
   },
   {
@@ -57,6 +61,7 @@ const dayPlans = [
       ["10:45", "人偶作品上色"],
       ["13:00", "限時創客任務與最終測試"],
       ["15:00", "成果發表、頒獎與合照"],
+      ["16:00", "環境整理、作品領取與賦歸"],
     ],
   },
 ];
@@ -329,6 +334,22 @@ function makeRefCode() {
   return `3D${date}-${random}`;
 }
 
+/* ============ Turnstile（選用，未填 site key 就完全不載入） ============ */
+function initTurnstile() {
+  if (!TURNSTILE_SITE_KEY) return;
+  const host = $("#turnstileBox");
+  host.hidden = false;
+  const widget = el("div", "cf-turnstile");
+  widget.dataset.sitekey = TURNSTILE_SITE_KEY;
+  widget.dataset.theme = "light";
+  host.append(widget);
+  const script = document.createElement("script");
+  script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+  script.async = true;
+  script.defer = true;
+  document.head.append(script);
+}
+
 /* ============ 送出 ============ */
 function initForm() {
   const form = $("#registrationForm");
@@ -420,44 +441,44 @@ function initForm() {
       notes: get("notes"),
     };
 
+    if (TURNSTILE_SITE_KEY) {
+      const token = String(data.get("cf-turnstile-response") || "");
+      if (!token) {
+        showError("請先完成「我不是機器人」驗證。");
+        return;
+      }
+      payload.turnstileToken = token;
+    }
+
     submitButton.disabled = true;
     submitButton.textContent = "正在送出…";
 
-    let confirmed = false;
     try {
-      // text/plain 可避開 CORS preflight，Apps Script 端仍以 JSON 解析
-      const response = await fetch(SHEETS_WEBHOOK_URL, {
+      const response = await fetch(SUBMIT_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!response.ok) throw new Error(`伺服器回應 ${response.status}`);
       const result = await response.json().catch(() => null);
-      if (result && result.ok === false) throw new Error(result.error || "寫入未完成");
-      confirmed = true;
+      if (!response.ok || !result || result.ok !== true) {
+        throw new Error((result && result.error) || `伺服器回應 ${response.status}`);
+      }
+      // 以伺服器回傳的編號為準
+      if (result.refCode) payload.refCode = result.refCode;
     } catch (error) {
       console.error("registration submit error", error);
-      // 讀不到回應時（CORS 或網路波動）改用 no-cors 再送一次，無法讀取結果
-      try {
-        await fetch(SHEETS_WEBHOOK_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload),
-        });
-      } catch (fallbackError) {
-        console.error("registration fallback error", fallbackError);
-        submitButton.disabled = false;
-        submitButton.textContent = "送出報名資料 →";
-        showError("目前無法送出報名，請檢查網路連線後再試，或直接透過 LINE 與我們聯繫。");
-        return;
-      }
+      submitButton.disabled = false;
+      submitButton.textContent = "送出報名資料 →";
+      if (window.turnstile) window.turnstile.reset();
+      showError(
+        error instanceof Error && error.message && !error.message.startsWith("伺服器回應")
+          ? error.message
+          : "目前無法送出報名，請稍後再試，或直接透過 LINE 與我們聯繫。",
+      );
+      return;
     }
 
-    $("#successCode").textContent = refCode;
-    $("#successNote").textContent = confirmed
-      ? "工作人員將於 2 個工作日內聯絡確認名額與繳費方式。送出資料不等同完成錄取，完成繳費後才會保留名額。"
-      : "資料已送出，但未能取得系統回覆確認。請截圖保留此編號，並透過 LINE 與我們確認是否收到報名資料。";
+    $("#successCode").textContent = payload.refCode;
     form.hidden = true;
     successCard.hidden = false;
     successCard.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -473,4 +494,5 @@ renderDayPanel();
 initScrollProgress();
 initMenu();
 initStageGrade();
+initTurnstile();
 initForm();

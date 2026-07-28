@@ -1,3 +1,7 @@
 .DS_Store
 Thumbs.db
 node_modules/
+
+# 本機測試用暫存
+.serve.mjs
+.claude-serve.mjs
