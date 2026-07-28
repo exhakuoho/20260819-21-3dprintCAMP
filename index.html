@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2026 3D列印創客營｜國立高雄科技大學</title>
+<meta name="description" content="2026/8/19–8/21 高科大建工校區，從3D建模、切片與列印，到原創人偶後處理、上色與成果發表。國小三年級至國中三年級，零基礎可參加，上限30人。" />
+
+<!-- ⚠️ 上線前請把下面的網域換成實際的 Cloudflare Pages 網域 -->
+<link rel="canonical" href="https://3dcamp.designjarvis.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="國立高雄科技大學 推廣教育處" />
+<meta property="og:title" content="2026 3D列印創客營｜國立高雄科技大學" />
+<meta property="og:description" content="三天走完一套完整的創客工程流程：建模、切片、列印、後處理、上色、發表。8/19–8/21 高科大建工校區。" />
+<meta property="og:url" content="https://3dcamp.designjarvis.com/" />
+<meta property="og:image" content="https://3dcamp.designjarvis.com/og-image.png" />
+<meta property="og:locale" content="zh_TW" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" />
+<link rel="stylesheet" href="/styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "2026 3D列印創客營",
+  "startDate": "2026-08-19T08:00+08:00",
+  "endDate": "2026-08-21T16:00+08:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "國立高雄科技大學 建工校區",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "高雄市",
+      "addressCountry": "TW"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "國立高雄科技大學 推廣教育處"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "5000",
+    "priceCurrency": "TWD",
+    "availability": "https://schema.org/InStock",
+    "validThrough": "2026-08-15T23:59+08:00"
+  },
+  "maximumAttendeeCapacity": 30
+}
+</script>
+</head>
+<body>
+<main>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" data-close-menu aria-label="回到首頁">
+      <span class="brand-mark"><b>NK</b></span>
+      <span>
+        <strong>國立高雄科技大學</strong>
+        <small>推廣教育處｜夏季科技實作營</small>
+      </span>
+    </a>
+
+    <button class="menu-button" type="button" id="menuButton" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span>
+    </button>
+
+    <nav class="nav" id="mainNav" aria-label="主要導覽">
+      <a href="#about" data-close-menu>營隊特色</a>
+      <a href="#schedule" data-close-menu>三日課程</a>
+      <a href="#info" data-close-menu>活動資訊</a>
+      <a href="#faq" data-close-menu>常見問題</a>
+      <a class="nav-cta" href="#register" data-close-menu>線上報名<span>↓</span></a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="orb orb-blue" aria-hidden="true"></div>
+    <div class="orb orb-yellow" aria-hidden="true"></div>
+
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="status-dot"></span>2026 夏季科技實作營</div>
+      <h1>把想像<span>變成實體。</span></h1>
+      <p class="hero-lead">
+        從數位建模、切片與列印，到人偶後處理、上色與成果發表，
+        三天走完一套完整的創客工程流程。
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#register">立即線上報名<span>↓</span></a>
+        <a class="button button-ghost" href="https://lin.ee/rZW93KN" target="_blank" rel="noreferrer">LINE 洽詢<span>↗</span></a>
+      </div>
+      <div class="hero-note" aria-label="招生重點">
+        <span>國小三年級—國中三年級</span>
+        <span>上限 30 人</span>
+        <span>不須自備電腦</span>
+        <span>08:30 活動開始</span>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-label="3D 列印分層成形概念圖">
+      <div class="visual-label label-top"><span>FROM IDEA</span><strong>01</strong></div>
+      <div class="cube-stage" aria-hidden="true">
+        <div class="layer layer-1"></div>
+        <div class="layer layer-2"></div>
+        <div class="layer layer-3"></div>
+        <div class="layer layer-4"></div>
+        <div class="layer layer-5"></div>
+        <div class="print-head"><i></i></div>
+      </div>
+      <div class="visual-label label-bottom"><strong>06</strong><span>TO REALITY</span></div>
+      <div class="axis axis-x">X</div>
+      <div class="axis axis-y">Y</div>
+      <div class="axis axis-z">Z</div>
+    </div>
+
+    <div class="quick-facts" aria-label="活動快速資訊">
+      <div><span>DATE</span><strong>08.19—08.21</strong><small>2026 · 三日營隊</small></div>
+      <div><span>TIME</span><strong>08:00—16:00</strong><small>報到 08:00—08:30</small></div>
+      <div><span>PLACE</span><strong>高科大建工校區</strong><small>國立高雄科技大學</small></div>
+      <div><span>FEE</span><strong>NT$ 5,000</strong><small>教材・午餐・保險・證書</small></div>
+      <div><span>GRADE</span><strong>小三—國三</strong><small>零基礎也能參加</small></div>
+      <div><span>DEADLINE</span><strong>08.15 截止</strong><small>30 人額滿提前截止</small></div>
+    </div>
+  </section>
+
+  <section class="section intro" id="about">
+    <div class="section-kicker"><span>01</span>ABOUT THE CAMP</div>
+    <div class="intro-layout">
+      <div><h2>不只印出作品，<br />更學會工程思考。</h2></div>
+      <div class="intro-copy">
+        <p>課程以「作品導向學習」為核心，讓學員從自己的想法出發，實際完成數位模型與 3D 列印作品。</p>
+        <p>教學同時重視設備安全、製造可行性與修正思維。每位學員將完成並帶回<strong>「立體姓名牌」與「原創人偶作品」</strong>。</p>
+      </div>
+    </div>
+    <div class="process-line" aria-label="六階段工程流程" id="processLine"></div>
+  </section>
+
+  <section class="section abilities">
+    <div class="section-heading">
+      <div class="section-kicker"><span>02</span>LEARNING OUTCOMES</div>
+      <h2>三天，建立四種未來能力</h2>
+    </div>
+    <div class="ability-grid" id="abilityGrid"></div>
+  </section>
+
+  <section class="section schedule-section" id="schedule">
+    <div class="section-heading schedule-heading">
+      <div>
+        <div class="section-kicker"><span>03</span>THREE-DAY JOURNEY</div>
+        <h2>完整走過一趟<br />創客工程流程</h2>
+      </div>
+      <p>每天完成一個明確成果，從基礎建模一路推進到原創作品發表。</p>
+    </div>
+    <div class="day-tabs" role="tablist" aria-label="選擇課程日" id="dayTabs"></div>
+    <article class="day-panel" role="tabpanel" id="dayPanel"></article>
+  </section>
+
+  <section class="section terms-section">
+    <div class="terms-intro">
+      <div class="section-kicker"><span>04</span>MAKER DICTIONARY</div>
+      <h2>孩子會真正<br />理解的工程語言</h2>
+      <p>把專有名詞轉化為看得到、摸得到的實作經驗。</p>
+    </div>
+    <div class="terms-list" id="termsList"></div>
+  </section>
+
+  <section class="section info-section" id="info">
+    <div class="info-card">
+      <div class="info-top">
+        <div>
+          <div class="section-kicker light"><span>05</span>CAMP INFORMATION</div>
+          <h2>準備好，把創意<br />帶進真實世界了嗎？</h2>
+        </div>
+        <div class="seat-stamp"><span>招生上限</span><strong>30</strong><small>最低 15 人開班</small></div>
+      </div>
+
+      <div class="info-grid">
+        <div><span>活動日期</span><strong>2026/8/19–8/21</strong></div>
+        <div><span>每日時間</span><strong>08:00–16:00</strong><small>報到 08:00–08:30｜活動開始 08:30–09:00</small></div>
+        <div><span>活動地點</span><strong>高科大建工校區</strong></div>
+        <div><span>活動費用</span><strong>每人 NT$5,000</strong></div>
+        <div><span>招生對象</span><strong>國小三年級—國中三年級</strong></div>
+        <div><span>報名截止</span><strong>2026/8/15・額滿提前截止</strong></div>
+      </div>
+
+      <div class="included">
+        <span>費用包含</span>
+        <ul><li>完整教材</li><li>每日午餐</li><li>活動保險</li><li>結業證書</li><li>兩件個人作品</li></ul>
+      </div>
+
+      <div class="info-bottom">
+        <div><span>主辦單位</span><strong>國立高雄科技大學 教推處</strong></div>
+        <div><span>指導老師</span><strong>曾唯誠（味增老師）</strong></div>
+        <a href="#register">前往線上報名<span>↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 線上報名 ================= -->
+  <section class="section register-section" id="register">
+    <div class="section-heading">
+      <div class="section-kicker"><span>06</span>REGISTRATION</div>
+      <h2>線上報名</h2>
+      <p class="register-lead">
+        填妥後送出即完成報名登記。工作人員將於 2 個工作日內與您聯繫確認名額與繳費方式；
+        <strong>送出資料不等同完成錄取，完成繳費後才會保留名額。</strong>
+      </p>
+    </div>
+
+    <form class="registration-form" id="registrationForm" novalidate>
+      <!-- 蜜罐欄位：正常使用者看不到也不會填，被填就是機器人 -->
+      <div class="hp-field" aria-hidden="true">
+        <label>請勿填寫此欄<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+      </div>
+
+      <div class="form-head">
+        <span class="form-step">01</span>
+        <p><b>學員資料</b><small>請依證件資料正確填寫</small></p>
+      </div>
+      <div class="form-grid">
+        <label>學員姓名 <i>*</i><input name="studentName" autocomplete="name" required maxlength="50" placeholder="王小明" /></label>
+        <label>就讀學校 <i>*</i><input name="school" required maxlength="80" placeholder="○○國小／○○國中" /></label>
+        <label>就學階段 <i>*</i>
+          <select name="stage" id="stageSelect" required>
+            <option value="" disabled selected>請選擇</option>
+            <option>國小</option><option>國中</option><option>高中</option>
+          </select>
+        </label>
+        <label>年級 <i>*</i>
+          <select name="grade" id="gradeSelect" required>
+            <option value="" disabled selected>請先選擇就學階段</option>
+          </select>
+          <small class="field-note">本營隊招生對象為國小三年級至國中三年級。</small>
+        </label>
+        <label>性別
+          <select name="gender">
+            <option value="" selected>不便透露</option>
+            <option>男</option><option>女</option>
+          </select>
+        </label>
+        <label>出生年月日 <i>*</i><input name="birth" type="date" required min="2004-01-01" max="2020-12-31" /></label>
+        <label class="full">身分證字號 <i>*</i>
+          <input name="idNumber" required maxlength="10" placeholder="A123456789" autocapitalize="characters" />
+          <small class="field-note">僅用於投保與必要行政作業，不會公開顯示；活動結束後依規定銷毀。</small>
+        </label>
+      </div>
+
+      <div class="form-head">
+        <span class="form-step">02</span>
+        <p><b>家長／監護人</b><small>用於名額、繳費及活動通知</small></p>
+      </div>
+      <div class="form-grid">
+        <label>家長／監護人姓名 <i>*</i><input name="parentName" required maxlength="50" /></label>
+        <label>與學生關係 <i>*</i>
+          <select name="relation" required>
+            <option value="" disabled selected>請選擇</option>
+            <option>父親</option><option>母親</option><option>其他</option>
+          </select>
+        </label>
+        <label>聯絡電話 <i>*</i><input name="phone" type="tel" required maxlength="30" placeholder="09xx-xxx-xxx" /></label>
+        <label>電子信箱 <i>*</i><input name="email" type="email" required maxlength="180" placeholder="example@email.com" /></label>
+        <label>緊急聯絡人姓名 <i>*</i><input name="emergencyName" required maxlength="50" /></label>
+        <label>緊急聯絡人電話 <i>*</i><input name="emergencyPhone" type="tel" required maxlength="30" /></label>
+      </div>
+
+      <div class="form-head">
+        <span class="form-step">03</span>
+        <p><b>健康聲明</b><small>幫助我們提前做好分組與照顧安排</small></p>
+      </div>
+      <div class="form-grid">
+        <fieldset class="full check-group">
+          <legend>過敏／慢性病（可複選，若無請留白）</legend>
+          <div class="check-row" id="allergyGroup">
+            <label class="check"><input type="checkbox" name="allergies" value="食物過敏" /><span>食物過敏</span></label>
+            <label class="check"><input type="checkbox" name="allergies" value="藥物過敏" /><span>藥物過敏</span></label>
+            <label class="check"><input type="checkbox" name="allergies" value="氣喘" /><span>氣喘</span></label>
+            <label class="check"><input type="checkbox" name="allergies" value="蠶豆症" /><span>蠶豆症</span></label>
+            <label class="check"><input type="checkbox" name="allergies" value="心臟疾病" /><span>心臟疾病</span></label>
+            <label class="check"><input type="checkbox" name="allergies" value="癲癇" /><span>癲癇</span></label>
+            <label class="check"><input type="checkbox" name="allergies" value="其他" /><span>其他</span></label>
+          </div>
+        </fieldset>
+        <label class="full">其他過敏說明<input name="allergyOther" maxlength="200" placeholder="例如：對海鮮過敏、需避開特定藥物" /></label>
+        <label class="full">特殊照護需求<textarea name="special" rows="3" maxlength="500" placeholder="行動、情緒、用藥或其他需要工作人員特別留意的事項；若無可留白。"></textarea></label>
+      </div>
+
+      <div class="form-head">
+        <span class="form-step">04</span>
+        <p><b>同意與授權</b><small>需由家長／監護人本人確認</small></p>
+      </div>
+
+      <div class="consent-box">
+        <label class="check">
+          <input type="checkbox" name="photoConsent" checked />
+          <span>我<b>同意</b>活動期間進行攝影紀錄，並用於成果展示與招生宣傳。（不同意請取消勾選，不影響報名）</span>
+        </label>
+        <label class="check">
+          <input type="checkbox" name="termsAgree" required />
+          <span>我已閱讀並同意下方<b>個人資料蒐集、處理及利用告知事項</b>與活動規範，並確認以上填寫內容正確無誤。<i>*</i></span>
+        </label>
+
+        <details class="privacy-note">
+          <summary>個人資料蒐集、處理及利用告知事項<span>＋</span></summary>
+          <div>
+            <p><b>蒐集目的：</b>營隊報名資格審查、名額與繳費聯繫、活動保險投保、學員照護與緊急聯絡、結業證書製發、活動成果紀錄。</p>
+            <p><b>蒐集項目：</b>學員姓名、就讀學校、就學階段與年級、性別、出生年月日、身分證字號，及家長／監護人姓名、關係、聯絡電話、電子信箱、緊急聯絡人資訊、健康狀況聲明、簽名。</p>
+            <p><b>利用期間與對象：</b>自報名之日起至活動結束後依相關法令規定之保存期限止，由國立高雄科技大學推廣教育處及本營隊承辦團隊於上述目的範圍內利用；投保作業將提供必要欄位予承保之保險公司。</p>
+            <p><b>當事人權利：</b>依個人資料保護法第 3 條，您得就本人之個人資料請求查詢、閱覽、製給複製本、補充或更正、停止蒐集處理利用或刪除。請來信 <a href="mailto:randdlaboratary@gmail.com">randdlaboratary@gmail.com</a> 或以電話 0903-245-075 聯繫。</p>
+            <p><b>不提供之效果：</b>上述必填欄位為辦理報名及投保所必需，若不提供將無法完成報名程序。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="form-grid signature-block">
+        <label class="full">家長姓名（正楷） <i>*</i><input name="signatureName" required maxlength="50" placeholder="請以正楷輸入家長／監護人姓名" /></label>
+        <div class="full signature-field">
+          <span class="sig-label">親筆簽名 <i>*</i></span>
+          <div class="sig-wrap">
+            <canvas id="signaturePad" width="1200" height="360" aria-label="親筆簽名手寫板"></canvas>
+            <span class="sig-hint" id="sigHint">請於此區以滑鼠或手指簽名</span>
+          </div>
+          <div class="sig-actions">
+            <button type="button" class="text-button" id="clearSignature">清除重簽</button>
+            <small class="field-note">簽名代表家長／監護人已閱讀並同意上述所有條款。</small>
+          </div>
+        </div>
+        <label class="full">其他備註<textarea name="notes" rows="3" maxlength="500" placeholder="任何想讓我們知道的事，例如：與同學同組、接送時間需求等。"></textarea></label>
+      </div>
+
+      <p class="form-error" id="formError" role="alert" hidden></p>
+      <button class="submit-button" type="submit" id="submitButton">送出報名資料 →</button>
+      <p class="submit-note">最低 15 人開班，上限 30 人；報名截止 2026/8/15，額滿提前截止。</p>
+    </form>
+
+    <div class="success-card" id="successCard" hidden role="status">
+      <span class="success-icon">✓</span>
+      <p class="form-kicker">REGISTRATION RECEIVED</p>
+      <h3>報名資料已收到！</h3>
+      <p>您的報名參考編號是</p>
+      <strong id="successCode"></strong>
+      <p id="successNote">工作人員將於 2 個工作日內聯絡確認名額與繳費方式。送出資料不等同完成錄取，完成繳費後才會保留名額。</p>
+      <button class="text-button" type="button" id="resetForm">再報名一位學員</button>
+    </div>
+  </section>
+
+  <section class="section faq-section" id="faq">
+    <div class="faq-intro">
+      <div class="section-kicker"><span>07</span>FAQ</div>
+      <h2>家長常見問題</h2>
+      <p>還有其他問題？歡迎透過 LINE 與味增老師聯繫。</p>
+    </div>
+    <div class="faq-list">
+      <details><summary>需要自備筆記型電腦嗎？<span>＋</span></summary><p>不需要。課程所需設備由主辦單位準備，學員依老師與助教指示操作即可。</p></details>
+      <details><summary>沒有 3D 建模經驗可以參加嗎？<span>＋</span></summary><p>可以。課程將從 Tinkercad 基礎操作開始，逐步帶領完成個人作品。</p></details>
+      <details><summary>活動費用包含哪些項目？<span>＋</span></summary><p>NT$5,000 包含教材、午餐、保險、結業證書，以及學員完成的兩件個人作品。</p></details>
+      <details><summary>行前通知何時發送？<span>＋</span></summary><p>預計於活動開始前 2–3 日，透過 Email、LINE 或簡訊提供教室、停車與校園地圖資訊。</p></details>
+      <details><summary>報名與繳費流程是什麼？<span>＋</span></summary><p>請先於本頁完成線上報名。工作人員將於 2 個工作日內聯繫確認名額，並依高科大流程提供繳費單與後續步驟；完成繳費後才正式保留名額。</p></details>
+      <details><summary>為什麼要填身分證字號？<span>＋</span></summary><p>活動保險投保作業需要學員的身分證字號。此欄位僅用於投保與必要行政作業，不會公開顯示，並依個人資料保護法規定處理。</p></details>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="cta-shape" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div>
+      <span>MAKE IT REAL · SUMMER 2026</span>
+      <h2>這個夏天，讓孩子<br />親手做出自己的作品。</h2>
+      <p>名額上限 30 人，額滿將提前截止。</p>
+    </div>
+    <a class="button button-primary" href="#register">立即線上報名<span>↓</span></a>
+  </section>
+
+  <footer>
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="brand-mark"><b>NK</b></span>
+        <span><strong>國立高雄科技大學</strong><small>推廣教育處｜夏季科技實作營</small></span>
+      </div>
+      <p>Science · Engineering · Education</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:0903245075">0903-245-075</a>
+      <a href="mailto:randdlaboratary@gmail.com">randdlaboratary@gmail.com</a>
+      <a href="https://weiyan.designjarvis.com" target="_blank" rel="noreferrer">weiyan.designjarvis.com ↗</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NATIONAL KAOHSIUNG UNIVERSITY OF SCIENCE AND TECHNOLOGY</span>
+      <a href="#top">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <a class="mobile-cta" href="#register">立即線上報名<span>↓</span></a>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>
