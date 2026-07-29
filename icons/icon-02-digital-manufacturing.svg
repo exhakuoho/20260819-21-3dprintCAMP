@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">數位製造理解</title>
+  <desc id="desc">桌上型 3D 列印機正在製作分層物件</desc>
+  <g fill="none" stroke="#214A5A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#FFFFFF" d="M50 42h156a10 10 0 0 1 10 10v14H40V52a10 10 0 0 1 10-10Z"/>
+    <path d="M50 66v124M206 66v124M62 66v101M194 66v101"/>
+    <path d="M62 91h132M128 66v25"/>
+    <path fill="#FFFFFF" d="M107 91h42v34a10 10 0 0 1-10 10h-22a10 10 0 0 1-10-10Z"/>
+    <circle cx="119" cy="111" r="5" fill="#FFE49A"/>
+    <circle cx="137" cy="111" r="5" fill="#FFE49A"/>
+    <path d="M120 135h16l-3 13h-10Z"/>
+    <path fill="#FFE49A" d="M96 174h64l-7-14h-50Zm10-14h44l-6-13h-32Z"/>
+    <path fill="#FFFFFF" d="M42 174h172a8 8 0 0 1 8 8v22a12 12 0 0 1-12 12H46a12 12 0 0 1-12-12v-22a8 8 0 0 1 8-8Z"/>
+    <path d="M58 216v9M198 216v9"/>
+    <circle cx="187" cy="195" r="6" fill="#FFE49A"/>
+    <circle cx="207" cy="195" r="6" fill="#FFE49A"/>
+  </g>
+</svg>

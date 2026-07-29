@@ -59,10 +59,10 @@ const dayPlans = [
 ];
 
 const abilities = [
-  ["01", "3D 設計與創客力", "運用基本幾何形體，完成具有個人風格的設計。"],
-  ["02", "數位製造理解", "理解模型、切片參數與實體列印結果之間的關係。"],
-  ["03", "工程解決能力", "辨識厚度、懸空、支撐、公差與列印失敗問題。"],
-  ["04", "美感與表達力", "完成作品上色、說明卡，並向大家分享創作歷程。"],
+  ["01", "3D 設計與創客力", "運用基本幾何形體，完成具有個人風格的設計。", "icon-01-3d-design"],
+  ["02", "數位製造理解", "理解模型、切片參數與實體列印結果之間的關係。", "icon-02-digital-manufacturing"],
+  ["03", "工程解決能力", "辨識厚度、懸空、支撐、公差與列印失敗問題。", "icon-03-engineering-solution"],
+  ["04", "美感與表達力", "完成作品上色、說明卡，並向大家分享創作歷程。", "icon-04-aesthetic-expression"],
 ];
 
 const terms = [
@@ -99,11 +99,16 @@ function renderProcess() {
 
 function renderAbilities() {
   const host = $("#abilityGrid");
-  abilities.forEach(([number, title, description]) => {
+  abilities.forEach(([number, title, description, iconFile]) => {
     const card = el("article", "ability-card");
     const icon = el("div", `ability-icon icon-${number}`);
     icon.setAttribute("aria-hidden", "true");
-    icon.append(el("i"), el("i"), el("i"));
+    const img = document.createElement("img");
+    img.src = `/icons/${iconFile}.svg`;
+    img.alt = "";
+    img.width = 256;
+    img.height = 256;
+    icon.append(img);
     card.append(
       el("span", "ability-number", number),
       icon,

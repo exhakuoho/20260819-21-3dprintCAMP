@@ -652,28 +652,28 @@ button {
 }
 
 .ability-icon {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 140px;
   margin: 18px 0 6px;
 }
 
-.ability-icon i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border: 1px solid var(--green);
-  transform: translate(-50%, -50%);
+.ability-icon img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
   transition: transform 0.35s ease;
 }
 
-.ability-icon i:nth-child(1) { width: 88px; height: 88px; transform: translate(-50%, -50%) rotate(45deg); }
-.ability-icon i:nth-child(2) { width: 58px; height: 58px; border-radius: 50%; }
-.ability-icon i:nth-child(3) { width: 19px; height: 19px; background: var(--yellow); }
-.ability-card:hover .ability-icon i:nth-child(1) { transform: translate(-50%, -50%) rotate(135deg); }
-.icon-02 i:nth-child(1) { background: var(--blue); transform: translate(-50%, -50%) rotate(30deg) skew(-12deg); }
-.ability-card:hover .icon-02 i:nth-child(1) { transform: translate(-50%, -50%) rotate(120deg) skew(-12deg); }
-.icon-03 i:nth-child(2) { width: 92px; height: 46px; border-radius: 50% 50% 0 0; }
-.icon-04 i:nth-child(1) { width: 72px; height: 72px; border-radius: 50%; background: var(--mint); }
+.ability-card:hover .ability-icon img {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ability-card:hover .ability-icon img { transform: none; }
+}
 
 .ability-card h3 {
   margin: auto 0 12px;
@@ -1651,8 +1651,7 @@ body {
 .ability-card:nth-child(2) { background: var(--blue); }
 .ability-card:nth-child(3) { background: var(--yellow); }
 .ability-card:nth-child(4) { background: var(--mint); }
-.ability-icon { height: 112px; }
-.ability-icon i { border: 2px solid var(--ink); }
+.ability-icon { height: 118px; }
 .ability-number { color: #138875; font-weight: 850; }
 
 .schedule-section {

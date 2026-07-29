@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">美感與表達力</title>
+  <desc id="desc">藝術調色盤、對話框與靈感星芒</desc>
+  <g fill="none" stroke="#214A5A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#FFFFFF" d="M120 43a79 79 0 1 0 11 157c10-2 16-12 13-22l-4-10c-4-12 5-24 17-23h8c23 1 39-20 32-42a79 79 0 0 0-77-60Z"/>
+    <circle cx="92" cy="75" r="10" fill="#FFE49A"/>
+    <circle cx="62" cy="111" r="10" fill="#FFFFFF"/>
+    <circle cx="72" cy="155" r="10" fill="#FFE49A"/>
+    <circle cx="111" cy="177" r="10" fill="#FFFFFF"/>
+    <path fill="#FFFFFF" d="M144 137h63a17 17 0 0 1 17 17v40a17 17 0 0 1-17 17h-29l-23 18v-18h-11a17 17 0 0 1-17-17v-40a17 17 0 0 1 17-17Z"/>
+    <path d="M151 160h49M151 176h38M151 192h29"/>
+    <path fill="#FFE49A" d="m198 40 7 18 18 7-18 7-7 18-7-18-18-7 18-7Z"/>
+  </g>
+</svg>

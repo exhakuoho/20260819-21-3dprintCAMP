@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">3D 設計與創客力</title>
+  <desc id="desc">立方體、設計鉛筆與建模節點</desc>
+  <g fill="none" stroke="#214A5A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#FFFFFF" d="M50 72 102 42l52 30v62l-52 30-52-30Z"/>
+    <path d="m50 72 52 31 52-31M102 103v61"/>
+    <path fill="#FFE49A" d="m102 103 52-31v62l-52 30Z"/>
+    <path fill="#FFFFFF" d="m161 158 37-37a9 9 0 0 1 13 0l7 7a9 9 0 0 1 0 13l-37 37-25 7Z"/>
+    <path d="m190 129 20 20M161 158l20 20M156 185l-8 3 3-8"/>
+    <path d="M45 198h82"/>
+    <circle cx="45" cy="198" r="7" fill="#FFE49A"/>
+    <circle cx="86" cy="198" r="7" fill="#FFFFFF"/>
+    <circle cx="127" cy="198" r="7" fill="#FFE49A"/>
+  </g>
+</svg>

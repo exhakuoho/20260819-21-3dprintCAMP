@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">工程解決能力</title>
+  <desc id="desc">齒輪、扳手與完成勾選</desc>
+  <g fill="none" stroke="#214A5A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#FFE49A" d="m120 32 8 15a76 76 0 0 1 18 5l15-9 15 15-9 15a76 76 0 0 1 5 18l17 5v22l-17 5a76 76 0 0 1-5 18l9 15-15 15-15-9a76 76 0 0 1-18 5l-8 17H98l-6-17a76 76 0 0 1-18-5l-15 9-15-15 9-15a76 76 0 0 1-5-18l-17-5V96l17-5a76 76 0 0 1 5-18l-9-15 15-15 15 9a76 76 0 0 1 18-5l6-15Z"/>
+    <circle cx="109" cy="108" r="43" fill="#FFFFFF"/>
+    <path fill="#FFFFFF" d="M126 81a28 28 0 0 0-33 34l-46 46a13 13 0 0 0 19 19l46-46a28 28 0 0 0 34-33l-19 19-19-5-5-19Z"/>
+    <circle cx="179" cy="177" r="42" fill="#FFFFFF"/>
+    <path d="m159 177 14 14 27-31"/>
+  </g>
+</svg>
