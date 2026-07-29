@@ -2022,11 +2022,9 @@ footer {
   }
 }
 
-/* ==================== 線上報名表單（靜態版新增） ==================== */
+/* ==================== 報名方式區塊（靜態版新增） ==================== */
 
-.register-section {
-  scroll-margin-top: 100px;
-}
+.register-section { scroll-margin-top: 100px; }
 
 .register-lead {
   max-width: 760px;
@@ -2036,378 +2034,110 @@ footer {
   line-height: 1.85;
 }
 
-.register-lead strong {
-  color: var(--ink);
-}
+.register-lead strong { color: var(--ink); }
 
-.registration-form,
-.success-card {
+.enroll-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   margin-top: 42px;
-  padding: clamp(24px, 4vw, 48px);
   border: 2px solid var(--ink);
   border-radius: 32px 32px 32px 12px;
   background: var(--paper);
   box-shadow: 8px 10px 0 var(--yellow-deep);
-}
-
-/* 蜜罐欄位：不用 display:none，避免部分機器人偵測 */
-.hp-field {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
   overflow: hidden;
 }
 
-.form-head {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: 42px 0 22px;
-  padding-top: 28px;
-  border-top: 2px dashed var(--line);
+.enroll-main {
+  padding: clamp(28px, 4vw, 48px);
+  background:
+    radial-gradient(circle at 18px 18px, rgba(36, 70, 82, 0.08) 2px, transparent 2px) 0 0 / 36px 36px,
+    var(--blue);
+  border-right: 2px solid var(--ink);
 }
 
-.form-head:first-of-type {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
-}
-
-.form-step {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 44px;
-  height: 44px;
-  border: 2px solid var(--ink);
-  border-radius: 14px 14px 14px 5px;
-  background: var(--yellow);
-  box-shadow: 3px 4px 0 var(--ink);
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.form-head p { margin: 0; }
-.form-head b,
-.form-head small { display: block; }
-.form-head b { font-size: 18px; font-weight: 850; }
-.form-head small { margin-top: 4px; color: var(--ink-soft); font-size: 12px; }
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.form-grid > label,
-.signature-field {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.form-grid .full,
-.signature-block .full {
-  grid-column: 1 / -1;
-}
-
-.form-grid i,
-.sig-label i {
-  color: #e0645a;
-  font-style: normal;
-}
-
-.form-grid input,
-.form-grid select,
-.form-grid textarea {
-  width: 100%;
-  padding: 14px 15px;
-  border: 2px solid var(--ink);
-  border-radius: 14px;
-  background: var(--warm);
-  color: var(--ink);
-  font: inherit;
-  font-weight: 500;
-  outline: none;
-  transition: box-shadow 0.18s ease, border-color 0.18s ease;
-}
-
-.form-grid textarea {
-  resize: vertical;
-  line-height: 1.7;
-}
-
-.form-grid input:focus,
-.form-grid select:focus,
-.form-grid textarea:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 4px rgba(56, 191, 169, 0.28);
-}
-
-.form-grid input:invalid:not(:placeholder-shown) {
-  border-color: #e0645a;
-}
-
-.field-note {
-  color: var(--ink-soft);
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 1.6;
-}
-
-.check-group {
-  margin: 0;
-  padding: 18px;
-  border: 2px dashed var(--line);
-  border-radius: 18px;
-  background: var(--warm);
-}
-
-.check-group legend {
-  padding: 0 8px;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.check-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 22px;
-  margin-top: 8px;
-}
-
-.check {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  color: var(--ink-soft);
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.7;
-  cursor: pointer;
-}
-
-.check input {
-  flex: none;
-  width: 19px;
-  height: 19px;
-  margin-top: 2px;
-  accent-color: var(--green);
-  cursor: pointer;
-}
-
-.check b { color: var(--ink); }
-
-.consent-box {
-  margin-top: 30px;
-  padding: 22px;
-  border: 2px solid var(--ink);
-  border-radius: 22px 22px 22px 8px;
-  background: var(--blue);
-}
-
-.consent-box .check + .check { margin-top: 14px; }
-
-.privacy-note {
-  margin-top: 18px;
-  border-top: 2px dashed rgba(36, 70, 82, 0.28);
-  padding-top: 14px;
-}
-
-.privacy-note summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 13px;
-  font-weight: 800;
-  cursor: pointer;
-  list-style: none;
-}
-
-.privacy-note summary::-webkit-details-marker { display: none; }
-.privacy-note[open] summary span { transform: rotate(45deg); }
-.privacy-note summary span { transition: transform 0.2s ease; }
-
-.privacy-note div {
-  padding-top: 12px;
-  color: var(--ink-soft);
-  font-size: 12px;
-  line-height: 1.85;
-}
-
-.privacy-note p { margin: 0 0 10px; }
-.privacy-note b { color: var(--ink); }
-.privacy-note a { text-decoration: underline; }
-
-.signature-block {
-  margin-top: 26px;
-}
-
-.sig-label {
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.sig-wrap {
-  position: relative;
-  border: 2px solid var(--ink);
-  border-radius: 16px;
-  background: var(--paper);
-  overflow: hidden;
-}
-
-#signaturePad {
+.enroll-kicker {
   display: block;
-  width: 100%;
-  height: 190px;
-  touch-action: none;
-  cursor: crosshair;
-}
-
-.sig-hint {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: rgba(36, 70, 82, 0.4);
-  font-size: 14px;
-  font-weight: 700;
-  pointer-events: none;
-}
-
-.sig-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.text-button {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--green);
-  font-weight: 850;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.form-error {
-  margin-top: 24px;
-  padding: 14px 16px;
-  border: 2px solid #e0645a;
-  border-radius: 14px;
-  background: #fff1ef;
-  color: #b23b31;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.submit-button {
-  width: 100%;
-  min-height: 62px;
-  margin-top: 28px;
-  border: 2px solid var(--ink);
-  border-radius: 18px;
-  background: var(--green);
-  box-shadow: 5px 6px 0 var(--ink);
-  font-size: 17px;
-  font-weight: 900;
-  cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-}
-
-.submit-button:hover:not(:disabled) {
-  background: var(--yellow);
-  transform: translate(2px, 2px);
-  box-shadow: 3px 4px 0 var(--ink);
-}
-
-.submit-button:disabled {
-  opacity: 0.6;
-  cursor: wait;
-}
-
-.submit-note {
-  margin: 16px 0 0;
-  color: var(--ink-soft);
-  text-align: center;
-  font-size: 12px;
-}
-
-.success-card {
-  padding: clamp(40px, 6vw, 72px) clamp(24px, 4vw, 48px);
-  text-align: center;
-}
-
-.success-icon {
-  display: grid;
-  place-items: center;
-  width: 82px;
-  height: 82px;
-  margin: 0 auto 24px;
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  background: var(--mint);
-  box-shadow: 4px 5px 0 var(--ink);
-  font-size: 40px;
-}
-
-.form-kicker {
-  margin: 0;
   color: var(--green);
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.16em;
 }
 
-.success-card h3 {
-  margin: 10px 0 18px;
-  font-size: clamp(24px, 3vw, 32px);
+.enroll-main h3 {
+  margin: 14px 0 12px;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.4;
 }
 
-.success-card > strong {
-  display: inline-block;
-  margin: 6px 0 18px;
-  padding: 12px 22px;
-  border: 2px solid var(--ink);
-  border-radius: 14px;
-  background: var(--yellow);
-  font-size: 22px;
-  font-family: var(--font-geist-mono);
-  letter-spacing: 0.06em;
-}
-
-.success-card p {
-  max-width: 560px;
-  margin: 0 auto 12px;
+.enroll-main p {
+  margin: 0 0 26px;
   color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.enroll-steps {
+  margin: 0;
+  padding: clamp(24px, 3vw, 40px);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.enroll-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.enroll-steps span {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--ink);
+  border-radius: 12px 12px 12px 4px;
+  background: var(--yellow);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.enroll-steps strong,
+.enroll-steps small { display: block; }
+.enroll-steps strong { font-size: 15px; font-weight: 850; }
+.enroll-steps small { margin-top: 3px; color: var(--ink-soft); font-size: 12px; line-height: 1.6; }
+
+.enroll-note {
+  margin-top: 24px;
+  padding: 20px 24px;
+  border: 2px dashed var(--line);
+  border-radius: 20px;
+  background: var(--warm);
+}
+
+.enroll-note p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
   line-height: 1.85;
 }
 
-@media (max-width: 760px) {
-  .form-grid {
+.enroll-note strong { color: var(--ink); }
+.enroll-note a { color: var(--green); font-weight: 800; text-decoration: underline; }
+
+@media (max-width: 860px) {
+  .enroll-card {
     grid-template-columns: 1fr;
-  }
-  .form-grid .full,
-  .signature-block .full {
-    grid-column: auto;
-  }
-  .check-row {
-    flex-direction: column;
-    gap: 8px;
-  }
-  #signaturePad {
-    height: 150px;
-  }
-  .registration-form,
-  .success-card {
     border-radius: 24px 24px 24px 10px;
     box-shadow: 5px 6px 0 var(--yellow-deep);
+  }
+  .enroll-main {
+    border-right: 0;
+    border-bottom: 2px solid var(--ink);
   }
 }
