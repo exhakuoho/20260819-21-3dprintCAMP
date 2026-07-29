@@ -104,7 +104,8 @@ function renderAbilities() {
     const icon = el("div", `ability-icon icon-${number}`);
     icon.setAttribute("aria-hidden", "true");
     const img = document.createElement("img");
-    img.src = `/icons/${iconFile}.svg`;
+    // 帶版本參數：避開部署空窗期被快取的錯誤回應，日後換圖也只要改這個號碼
+    img.src = `/icons/${iconFile}.svg?v=1`;
     img.alt = "";
     img.width = 256;
     img.height = 256;
