@@ -43,7 +43,7 @@ Pages 專案設定：
 ## 上線前必改
 
 1. **網域**：`index.html` 的 `canonical` / `og:url` / `og:image`、`robots.txt`、`sitemap.xml`
-   目前都寫 `https://3dcamp.designjarvis.com/`，請換成實際網域。
+   已設定為 `https://202608-3dpcamp.designjarvis.com/`。
 2. **og-image.png** 目前是 1.8MB 的 DM 原圖，建議壓到 300KB 以內、裁成 1200×630。
 
 ## 內容怎麼改

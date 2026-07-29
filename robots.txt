@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://3dcamp.designjarvis.com/sitemap.xml
+Sitemap: https://202608-3dpcamp.designjarvis.com/sitemap.xml
