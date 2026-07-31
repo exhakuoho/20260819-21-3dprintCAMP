@@ -9,7 +9,7 @@
 **本站不辦理報名，也不蒐集任何個人資料。**
 報名一律由國立高雄科技大學推廣教育處統一辦理：
 
-<https://cec.nkust.edu.tw/CurriculumList.aspx>
+<https://cec.nkust.edu.tw/ClassSign.aspx?id=121088>
 
 網站上所有報名相關的 CTA 都導向頁面內的「報名方式」區塊，該區塊再連到上面的官方系統。
 連結若有變動，改 `index.html` 中 `#register` 區塊裡的網址即可（只有一處）。
